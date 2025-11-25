@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chandrakant Sattesa - Live Broadcasting Producer & Operations Manager</title>
+    <style>
+        :root {
+            --color-bg-primary: #0f1419;
+            --color-bg-secondary: #1a1f2e;
+            --color-bg-card: #1e2432;
+            --color-accent: #32b8c6;
+            --color-accent-hover: #29a6b2;
+            --color-text-primary: #f5f5f5;
+            --color-text-secondary: #a7a9a9;
+            --color-border: rgba(119, 124, 124, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 20, 25, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 2rem 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 20px;
+            border: 3px solid var(--color-accent);
+            box-shadow: 0 20px 60px rgba(50, 184, 198, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(50, 184, 198, 0.4);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--color-text-primary), var(--color-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .title {
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--color-bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--color-accent);
+            color: #0f1419;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-text-primary);
+            border: 2px solid var(--color-border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        /* Section Styling */
+        section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: var(--color-text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--color-accent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            border: 3px solid var(--color-bg-primary);
+        }
+
+        .timeline-content {
+            background: var(--color-bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-accent);
+        }
+
+        .timeline-content .company {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .date {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .timeline-content li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+            color: var(--color-text-secondary);
+        }
+
+        .timeline-content li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+
+        /* Events Grid */
+        .events-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            color: var(--color-text-secondary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--color-accent);
+            color: #0f1419;
+            border-color: var(--color-accent);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .event-card {
+            background: var(--color-bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-accent);
+            box-shadow: 0 10px 30px rgba(50, 184, 198, 0.2);
+        }
+
+        .event-card-header {
+            background: linear-gradient(135deg, #1e2432 0%, #2a3142 100%);
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .event-card-header h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            color: var(--color-text-primary);
+        }
+
+        .event-role {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: rgba(50, 184, 198, 0.15);
+            color: var(--color-accent);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .event-card-body {
+            padding: 1.5rem;
+        }
+
+        .event-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .event-link:hover {
+            color: var(--color-accent-hover);
+        }
+
+        .event-link::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .event-link:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--color-bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-accent);
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--color-border);
+            color: var(--color-text-secondary);
+        }
+
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: var(--color-bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--color-bg-secondary);
+            border-radius: 8px;
+        }
+
+        .contact-item-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--color-accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #0f1419;
+        }
+
+        .contact-item-content h4 {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item-content p {
+            color: var(--color-text-primary);
+            font-weight: 500;
+        }
+
+        .contact-item-content a {
+            color: var(--color-text-primary);
+            text-decoration: none;
+        }
+
+        .contact-item-content a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-bg-secondary);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--color-border);
+        }
+
+        footer p {
+            color: var(--color-text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 120px 1.5rem 40px;
+            }
+
+            .hero-image {
+                order: -1;
+                margin-bottom: 2rem;
+            }
+
+            .hero-image img {
+                max-width: 300px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation for event cards */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .event-card {
+            animation: fadeInUp 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">CS</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Chandrakant Sattesa</h1>
+            <p class="title">Live Broadcasting Producer | Operations Manager</p>
+            <p>Results-driven Operations &amp; Live Events Manager with 7+ years of experience delivering large-scale esports tournaments, live shows, and broadcasts. Adept at being the glue across departments, managing timelines, budgets, and logistics while keeping the chaos of live events fun and under control.</p>
+            <div class="cta-buttons">
+                <a href="#events" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/86e762f0-df15-4990-8cc4-45670ddf7bed" alt="Chandrakant Sattesa - Professional Photo">
+        </div>
+    </section>
+    
+    <section style="padding: 40px 2rem; max-width: 1400px; margin: 0 auto;">
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number">7+</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">30+</span>
+                <span class="stat-label">Major Events</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Team Members Led</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <h2>About Me</h2>
+            <p>Known for problem-solving under pressure, structured planning, and balancing creativity with operational excellence</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3 style="margin-bottom: 1.5rem;">Professional Summary</h3>
+                <p style="color: var(--color-text-secondary); line-height: 1.8;">
+                    I specialize in managing end-to-end live broadcast production for events, ensuring seamless streaming quality and reliable transmission. My expertise includes conducting pre-live PCR technical checks, operating industry-standard equipment like Blackmagic Design 4K8 switcher, and utilizing software such as vMix, OBS Studio, and Caster for live production and multi-platform streaming.
+                </p>
+                <p style="color: var(--color-text-secondary); line-height: 1.8; margin-top: 1rem;">
+                    I've successfully coordinated with remote teams and on-site technicians to ensure smooth execution and quick troubleshooting during live events. My experience spans across esports tournaments, golf championships, squash tours, and major gaming events across India and internationally.
+                </p>
+            </div>
+            <div class="contact-info">
+                <h3 style="margin-bottom: 1.5rem;">Education</h3>
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--color-accent); margin-bottom: 0.5rem;">Bachelor of Business Administration</h4>
+                    <p style="color: var(--color-text-secondary);">D Y Patil University Mumbai</p>
+                    <p style="color: var(--color-text-secondary); font-size: 0.9rem;">2023 - Appearing</p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--color-accent); margin-bottom: 0.5rem;">Diploma in Mechanical Engineering</h4>
+                    <p style="color: var(--color-text-secondary);">Indira Institute of Diploma and Engineering</p>
+                    <p style="color: var(--color-text-secondary); font-size: 0.9rem;">2011 - 2014</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--color-accent); margin-bottom: 0.5rem;">Languages</h4>
+                    <p style="color: var(--color-text-secondary);">English, Hindi, Marathi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="section-header">
+            <h2>Professional Experience</h2>
+            <p>Building excellence through diverse roles in live event production and operations</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Live Broadcasting Producer</h3>
+                    <p class="company">Fluidscapes Consultant</p>
+                    <p class="date">January 2025 - Present</p>
+                    <ul>
+                        <li>Manage end-to-end live broadcast production for events, ensuring seamless streaming quality</li>
+                        <li>Conduct pre-live PCR technical checks including LiveU unit configuration and remote camera signal testing</li>
+                        <li>Operate Blackmagic Design 4K8 switcher for multi-camera production and live mixing</li>
+                        <li>Utilize vMix, OBS Studio, and Caster for live production and multi-platform streaming</li>
+                        <li>Coordinate with remote teams for smooth execution during live events</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Esports Operation and Broadcasting</h3>
+                    <p class="company">League of Extraordinary Gamers (LXG)</p>
+                    <p class="date">December 2020 - July 2024</p>
+                    <ul>
+                        <li>Central coordinator between creative, technical, and operations teams</li>
+                        <li>Managed PCR operations, timelines, budgets, and resources for national-scale live events</li>
+                        <li>Supervised a team of 15, delivering high-quality live event broadcasting</li>
+                        <li>Executed international esports tournaments (LAN and online) with core logistics</li>
+                        <li>Created SOPs for business rhythm processes, financial submissions, and resource scheduling</li>
+                        <li>Built strong vendor and client relationships with solutions-driven approach</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Community Manager</h3>
+                    <p class="company">League of Extraordinary Gamers (LXG)</p>
+                    <p class="date">December 2018 - December 2020</p>
+                    <ul>
+                        <li>Built and managed the LXG gaming community across India</li>
+                        <li>Boosted user engagement and retention through strategic initiatives</li>
+                        <li>Assisted in operational planning and marketing strategies for B2C and B2B events</li>
+                        <li>Developed user engagement frameworks based on behavioral research</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Project Manager</h3>
+                    <p class="company">Enprosyst Solutions PVT LTD</p>
+                    <p class="date">March 2018 - August 2018</p>
+                    <ul>
+                        <li>Oversaw execution of multiple food processing equipment projects across India</li>
+                        <li>Managed cross-location teams, ensuring project delivery within scope and budget</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Plant Executive</h3>
+                    <p class="company">TVK Beverages PVT LTD</p>
+                    <p class="date">January 2017 - January 2018</p>
+                    <ul>
+                        <li>Handled plant operations, including workforce management and scheduling</li>
+                        <li>Collaborated with cross-departmental teams to maintain supply chain and quality standards</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events">
+        <div class="section-header">
+            <h2>Featured Events</h2>
+            <p>Showcasing major live broadcasts and events I've produced and managed</p>
+        </div>
+        <div class="events-filter">
+            <button class="filter-btn active" data-filter="all">All Events</button>
+            <button class="filter-btn" data-filter="esports">Esports</button>
+            <button class="filter-btn" data-filter="sports">Sports</button>
+            <button class="filter-btn" data-filter="producer">Producer</button>
+            <button class="filter-btn" data-filter="director">Director</button>
+        </div>
+        <div class="events-grid" id="eventsGrid">
+            <!-- Events will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header">
+            <h2>Skills &amp; Expertise</h2>
+            <p>Technical and soft skills honed through years of live event production</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li>vMix &amp; OBS Studio</li>
+                    <li>Blackmagic Design ATEM 4K8</li>
+                    <li>LiveU Configuration</li>
+                    <li>Multi-Camera Production</li>
+                    <li>Audio Calibration</li>
+                    <li>Caster Platform</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Operations Management</h3>
+                <ul>
+                    <li>PCR Operations</li>
+                    <li>Budget Management</li>
+                    <li>Timeline Coordination</li>
+                    <li>Resource Allocation</li>
+                    <li>Vendor Management</li>
+                    <li>SOP Development</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Leadership &amp; Soft Skills</h3>
+                <ul>
+                    <li>Team Leadership (15+ Members)</li>
+                    <li>Cross-Functional Coordination</li>
+                    <li>Problem-Solving Under Pressure</li>
+                    <li>Stakeholder Management</li>
+                    <li>Risk Anticipation</li>
+                    <li>Communication Excellence</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Specialized Areas</h3>
+                <ul>
+                    <li>Live Broadcasting</li>
+                    <li>Event Project Management</li>
+                    <li>Brand Management</li>
+                    <li>KPI Development</li>
+                    <li>Training Programs</li>
+                    <li>Community Outreach</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+            <p>Let's discuss your next live event production</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-item-icon">📧</div>
+                    <div class="contact-item-content">
+                        <h4>Email</h4>
+                        <p><a href="mailto:sattesachandrakant@gmail.com">sattesachandrakant@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">📱</div>
+                    <div class="contact-item-content">
+                        <h4>Phone</h4>
+                        <p><a href="tel:+917798735930">+91 7798735930</a> / <a href="tel:+918007027595">8007027595</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h3 style="margin-bottom: 1.5rem;">Connect With Me</h3>
+                <div class="contact-item">
+                    <div class="contact-item-icon">💼</div>
+                    <div class="contact-item-content">
+                        <h4>LinkedIn</h4>
+                        <p><a href="https://www.linkedin.com/in/chetan-sattesa-4a0bbb128/" target="_blank" rel="noopener noreferrer">linkedin.com/in/chetan-sattesa</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Chandrakant Sattesa. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Live Broadcasting Producer &amp; Operations Manager</p>
+    </footer>
+
+    <script>
+        // Events data
+        const eventsData = [
+            {
+                name: "Indian Lan Gaming Season 4",
+                link: "https://watch.jiogames.com/search?s=Indian%20Lan%20Gaming%20season%204",
+                role: "Producer / Live Show Director / Head Of Broadcasting",
+                category: ["esports", "producer", "director"]
+            },
+            {
+                name: "TEC Challenger Series | Online",
+                link: "https://www.youtube.com/live/o7idylzvX-M?feature=share",
+                role: "Producer",
+                category: ["esports", "producer"]
+            },
+            {
+                name: "INTEL PRESENTS TEC CHALLENGER SERIES",
+                link: "https://www.youtube.com/live/i865gRTIG48?feature=share",
+                role: "Producer",
+                category: ["esports", "producer"]
+            },
+            {
+                name: "ZOTAC CUP | MAIN EVENT",
+                link: "https://www.youtube.com/live/3r_0USXwLJk?feature=share",
+                role: "Producer",
+                category: ["esports", "producer"]
+            },
+            {
+                name: "AMD PRESENTS TEC SHOWDOWN",
+                link: "https://www.youtube.com/live/WY5EBBf46ac?feature=share",
+                role: "Producer",
+                category: ["esports", "producer"]
+            },
+            {
+                name: "AMAZON GREAT INDIAN FESTIVAL CHAMPIONSHIP",
+                link: "https://www.youtube.com/live/fgDAwJzxmho?feature=share",
+                role: "Producer",
+                category: ["esports", "producer"]
+            },
+            {
+                name: "AMD TEC Challenger Series 2",
+                link: "https://www.youtube.com/live/inarcvYUDRU?feature=share",
+                role: "Producer",
+                category: ["esports", "producer"]
+            },
+            {
+                name: "AMD TEC Challenger Series 1",
+                link: "https://www.youtube.com/live/G7YTc9TzbDs?feature=share",
+                role: "Producer",
+                category: ["esports", "producer"]
+            },
+            {
+                name: "LG UltraGear Apex Legends Streamer Invitational",
+                link: "https://www.youtube.com/live/6B8ICE-X364?si=N9gm0DjOdZ0OEYAC",
+                role: "Producer",
+                category: ["esports", "producer"]
+            },
+            {
+                name: "Lenovo + AMD The Rising",
+                link: "https://www.youtube.com/live/rDSRvtyScjg?feature=share",
+                role: "Producer / Broadcast Team Lead",
+                category: ["esports", "producer"]
+            },
+            {
+                name: "AMAZON PRIME DAY VALORANT CHAMPIONSHIP",
+                link: "https://www.youtube.com/live/cVO7hIsHthY?feature=share",
+                role: "Producer / Broadcast Team Lead",
+                category: ["esports", "producer"]
+            },
+            {
+                name: "LENOVO INTEL VALORANT OPEN POWERED BY CROMA",
+                link: "https://www.youtube.com/live/uYwTqRYvlkM?feature=share",
+                role: "Producer / Broadcast Team Lead",
+                category: ["esports", "producer"]
+            },
+            {
+                name: "AMD Ryzen Radeon Invitational | Golf with your friends",
+                link: "https://www.youtube.com/live/CpyDVvUnfFU?feature=share",
+                role: "Producer",
+                category: ["esports", "producer"]
+            },
+            {
+                name: "Free Fire India Championship 2021 Fall Grand Finals [ENGLISH]",
+                link: "https://www.youtube.com/live/ZW3ruWqQpts?feature=share",
+                role: "Producer / Live Show Director",
+                category: ["esports", "producer", "director"]
+            },
+            {
+                name: "Free Fire India Championship 2021 Fall Grand Finals [HINDI]",
+                link: "https://www.youtube.com/live/6bIwP-8vED0?feature=share",
+                role: "Live Show Director",
+                category: ["esports", "director"]
+            },
+            {
+                name: "Free Fire City Open National Finals [ENGLISH]",
+                link: "https://www.youtube.com/live/VVgGUt6oLQk?feature=share",
+                role: "Show Producer, Technical Team Lead",
+                category: ["esports", "producer"]
+            },
+            {
+                name: "Free Fire City Open National Finals [HINDI]",
+                link: "https://www.youtube.com/live/yJ6AtrBKG5g?feature=share",
+                role: "Live Show Director, Technical Team Lead",
+                category: ["esports", "director"]
+            },
+            {
+                name: "Free Fire World Series 2022 Sentosa | Finals [HINDI]",
+                link: "https://www.youtube.com/live/KkPgmXK9BO0?si=vsNIErj8hcKyJGMM",
+                role: "Studio Prep and Studio Operations",
+                category: ["esports"]
+            },
+            {
+                name: "Valorant India Invitational by Galaxy Racer India Powered by AMD",
+                link: "https://www.youtube.com/live/FeAUvjYvIoE?si=9tPJHHZsRuqoOhbv",
+                role: "LED and Production 2nd Lead, Inventory and Logistic Head",
+                category: ["esports"]
+            },
+            {
+                name: "Convergence 2023 by Riot Games and The Esports Club [Hindi]",
+                link: "https://www.youtube.com/live/FeAUvjYvIoE?si=9tPJHHZsRuqoOhbv",
+                role: "Producer, Logistic and Inventory Manager",
+                category: ["esports", "producer"]
+            },
+            {
+                name: "PGTI National Golf Tournament - Mysuru Open 2024",
+                link: "https://www.youtube.com/live/5JmvNl0tj0U?si=JS-cPtcsADR-Wm-G",
+                role: "Graphics and Replay Operator",
+                category: ["sports"]
+            },
+            {
+                name: "PGTI National Golf Tournament - Coimbatore Open 2024",
+                link: "https://www.youtube.com/live/FvIX_XzImiA?si=xoPGUdmSuBiYvaxk",
+                role: "Replay Operator",
+                category: ["sports"]
+            },
+            {
+                name: "PGTI National Golf Tournament - Chennai Pro Championship 2024",
+                link: "https://www.youtube.com/live/eiVX3w4YS0g?si=so8vLQmLnc0B0450",
+                role: "Replay Operator",
+                category: ["sports"]
+            },
+            {
+                name: "HCL Squash Tour Kolkata - 2024",
+                link: "https://www.youtube.com/live/oHVD00uuvrE?si=H7zzPR-_yG2-Ucrt",
+                role: "Replay Operator",
+                category: ["sports"]
+            },
+            {
+                name: "Kapil Dev Present - Trinity Golf Champions League, Bengaluru - 2024",
+                link: "https://www.youtube.com/watch?v=Nf9tsxGicQs",
+                role: "Replay Operator",
+                category: ["sports"]
+            },
+            {
+                name: "PGTI National Golf Tournament - Telangana Golconda Masters 2024",
+                link: "https://www.youtube.com/live/3OU-i5Ndq9c?si=i6Nq6IYxjR5n_NaP",
+                role: "Replay Operator",
+                category: ["sports"]
+            },
+            {
+                name: "PGTI National Golf Tournament - Haryana Open 2024",
+                link: "https://www.youtube.com/live/pqHI3Irz4dU?si=MMaQfeakRH9JIXCQ",
+                role: "Graphic Operator",
+                category: ["sports"]
+            },
+            {
+                name: "PGTI National Golf Tournament - J&K Open 2024",
+                link: "https://www.youtube.com/live/3jRx45gTtp4?si=NQl6XQ-iGL16uOPt",
+                role: "Graphic Operator",
+                category: ["sports"]
+            },
+            {
+                name: "PGTI National Golf Tournament - The Poona Club Open 2024",
+                link: "https://www.youtube.com/live/VaWbIUO0ZzU?si=0_pFCbVUd2sMsv7J",
+                role: "Replay Operator",
+                category: ["sports"]
+            },
+            {
+                name: "PGTI National Golf Tournament - Jaipur Open 2024",
+                link: "https://www.youtube.com/live/6T0NPpiWK5k?si=md5_lszMc6_VSMik",
+                role: "Replay Operator",
+                category: ["sports"]
+            },
+            {
+                name: "PGTI National Golf Tournament - Vishwa Samudra Open Delhi 2024",
+                link: "https://www.youtube.com/live/yc7k-ezAxAk?si=hgYCmYpwufjly7p1",
+                role: "Replay Operator",
+                category: ["sports"]
+            },
+            {
+                name: "PGTI National Golf Tournament - Tata Steel Tour Championship Jamshedpur 2024",
+                link: "https://www.youtube.com/live/J-Mxw8KWxi0?si=PIjdybuWIx5d6XUO",
+                role: "Replay Operator",
+                category: ["sports"]
+            }
+        ];
+
+        // Render events
+        function renderEvents(filter = 'all') {
+            const eventsGrid = document.getElementById('eventsGrid');
+            eventsGrid.innerHTML = '';
+
+            const filteredEvents = filter === 'all' 
+                ? eventsData 
+                : eventsData.filter(event => event.category.includes(filter));
+
+            filteredEvents.forEach((event, index) => {
+                const eventCard = document.createElement('div');
+                eventCard.className = 'event-card';
+                eventCard.style.animationDelay = `${index * 0.05}s`;
+                
+                eventCard.innerHTML = `
+                    <div class="event-card-header">
+                        <h3>${event.name}</h3>
+                        <span class="event-role">${event.role}</span>
+                    </div>
+                    <div class="event-card-body">
+                        <a href="${event.link}" target="_blank" rel="noopener noreferrer" class="event-link">
+                            Watch Event
+                        </a>
+                    </div>
+                `;
+                
+                eventsGrid.appendChild(eventCard);
+            });
+        }
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const filter = button.getAttribute('data-filter');
+                renderEvents(filter);
+            });
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize events on page load
+        renderEvents();
+
+        // Active navigation highlight on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = 'var(--color-text-secondary)';
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.style.color = 'var(--color-accent)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
